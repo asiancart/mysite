@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Sınavı</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+        .top-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right">
+        <p>Kullanıcı: {{ username }}</p>
+        <p>En Yüksek Skor: {{ high_score }}</p>
+    </div>
+    <h1>Python Sınavı</h1>
+    <form action="/submit" method="post">
+        {% for i, question in enumerate(questions) %}
+            <fieldset>
+                <legend>{{ question.question }}</legend>
+                {% for option in question.options %}
+                    <label>
+                        <input type="radio" name="question-{{ i }}" value="{{ option }}"> {{ option }}
+                    </label><br>
+                {% endfor %}
+            </fieldset>
+        {% endfor %}
+        <input type="submit" value="Gönder">
+    </form>
+    <footer>
+        <p>ilyas türkmen</p>
+    </footer>
+</body>
+</html>

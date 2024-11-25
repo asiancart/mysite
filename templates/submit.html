@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Sınavı - Sonuç</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Sınav Sonucu</h1>
+        <p>{{ username }}: {{ score }}/{{ total }} doğru cevap</p>
+        <p>En Yüksek Skor: {{ high_score }}</p>
+        <form action="{{ url_for('quiz') }}" method="get">
+            <input type="submit" value="Tekrar Dene">
+        </form>
+        <form action="{{ url_for('index') }}" method="get">
+            <input type="submit" value="Ana Sayfaya Dön">
+        </form>
+    </main>
+    
+    <footer>
+        <p>ilyas türkmen</p>
+    </footer>
+</body>
+</html>
